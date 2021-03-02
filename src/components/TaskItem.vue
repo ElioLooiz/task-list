@@ -1,13 +1,12 @@
 <template lang="pug">
-  div(:class='"status" + task.status')
-    div(class='task-item' @click="onTaskClick(task.id)" ) 
-      p Задача: 
-        span {{ task.title }}
-      div.task-description Описание:
-        span  {{ task.description }}
-      p Дата создания: 
-        span {{ task.created_date | date("datetime")}}
-
+div(:class="'status' + task.status")
+  .task-item(@click="onTaskClick(task.id)") 
+    p Задача:
+      span {{ task.title }}
+    .task-description Описание:
+      span {{ task.description }}
+    p Дата создания:
+      span {{ task.created_date | date('datetime') }}
 </template>
 
 <script>

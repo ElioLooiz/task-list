@@ -2,7 +2,7 @@
 .app-container
   .task-list
     .error-container
-      h1 Упс... 
+      h1 Упс...
       h2 Страница не найдена. Обратитесь к администратору
 </template>
 

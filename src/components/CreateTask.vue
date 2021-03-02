@@ -1,35 +1,51 @@
 <template lang="pug">
 .app-container
   .createTask-form.task-list(v-if="!loading")
-    h1(v-if="createMode" class="create-task-header") Добавить новую задачу
-    h1(v-else class="create-task-header") Редактирование задачи
-    
+    h1.create-task-header(v-if="createMode") Добавить новую задачу
+    h1.create-task-header(v-else) Редактирование задачи
+
     .input-container
-      h3(v-if="validError" class="error-msg") Пожалуйста, заполните обязательные поля формы
+      h3.error-msg(v-if="validError") Пожалуйста, заполните обязательные поля формы
       .input-row
         p Название:
-        input(type="text", v-model="task.title" class="task-input" :class='{"task-input-red": this.validError && !this.task.title.trim() }' )
-      
+        input.task-input(
+          type="text",
+          v-model="task.title",
+          :class="{ 'task-input-red': this.validError && !this.task.title.trim() }"
+        )
+
       .input-row
         p Описание:
-        input(type="text", v-model="task.description" @keyup.enter="addTaskClick" class="task-input" :class='{"task-input-red": this.validError && !this.task.description.trim() }')
+        input.task-input(
+          type="text",
+          v-model="task.description",
+          @keyup.enter="addTaskClick",
+          :class="{ 'task-input-red': this.validError && !this.task.description.trim() }"
+        )
 
-      .input-row( v-if="!createMode")
+      .input-row(v-if="!createMode")
         p Состояние:
-        select( v-model="task.status" class="task-input")
-          option(v-for="status of statuses" :key="status.id" :value="status.id" class="task-input") {{status.title}}
+        select.task-input(v-model="task.status")
+          option.task-input(
+            v-for="status of statuses",
+            :key="status.id",
+            :value="status.id"
+          ) {{ status.title }}
 
-      .date-row( v-if="!createMode")
-        p Дата изменения: 
-        div {{task.created_date | date("datetime")}}
-    
-    button(type='submit' @click="addTaskClick" v-if="createMode" class="button-custom") Добавить
+      .date-row(v-if="!createMode")
+        p Дата изменения:
+        div {{ task.created_date | date('datetime') }}
+
+    button.button-custom(
+      type="submit",
+      @click="addTaskClick",
+      v-if="createMode"
+    ) Добавить
     .button-menu(v-else)
-      button(type='submit' @click="updateTaskClick" class="button-custom") Изменить
-      button(type='submit' @click="deleteTask(task.id)" class="button-custom" ) Удалить
-      
+      button.button-custom(type="submit", @click="updateTaskClick") Изменить
+      button.button-custom(type="submit", @click="deleteTask(task.id)") Удалить
+
   Preloader(:isLoading="loading")
-    
 </template>
 
 <script>

@@ -2,11 +2,10 @@
 .app-container
   .task-list(v-if="!loading")
     .task-container
-      TaskItem(v-for="task of tasks", :key="task.id" :task="task") 
-    button(type='submit' @click="addTaskClick" class="button-custom") Добавить
+      TaskItem(v-for="task of tasks", :key="task.id", :task="task") 
+    button.button-custom(type="submit", @click="addTaskClick") Добавить
 
   Preloader(:isLoading="loading")
-      
 </template>
 
 <script>

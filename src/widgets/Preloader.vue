@@ -1,10 +1,10 @@
 <template lang="pug">
-  .task-list(v-if="this.$props.isLoading")
-    .container 
-      .dash.first
-      .dash.sec
-      .dash.third
-      .dash.fourth
+.task-list(v-if="this.$props.isLoading")
+  .container 
+    .dash.first
+    .dash.sec
+    .dash.third
+    .dash.fourth
 </template>
 
 <script>
