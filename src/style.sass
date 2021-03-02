@@ -1,0 +1,365 @@
+// Variables section
+
+$base-color: #ef5350
+$secondary-color: #ff867c
+$dark-color: #b61827
+$base-text-color: #ffffff
+$secondary-text-color: #864f4f
+
+$done-color: #499e0b
+$to-do-color: #7BB5E0
+$in-progress-color: #7a688b
+
+// Main app styles
+
+body, p
+  margin: 0
+  padding: 0
+
+.app
+  font-family: "Avenir", Helvetica, Arial, sans-serif
+
+.app-container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  width: 100%
+
+li
+  list-style: none
+
+h1
+  color: $base-text-color
+
+.main-header
+  margin-top: 0px
+  padding-top: 4vh
+  padding-left: 2vw
+  font-size: 5vh
+
+.header
+  width: 100%
+  height: 15vh
+  background-color: $base-color
+  color: $base-text-color
+
+.button-custom
+  width: 20%
+  display: inline-block
+  cursor: pointer
+  font-size: 14px
+  text-decoration: none
+  padding: 12px 24px
+  color: #ffffff
+  background: $base-color
+  border-radius: 8px
+  border: 2px solid $dark-color
+  margin-top: 4px
+
+// TaskList.vue styles
+.task-list
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  width: 600px
+  background-color: $secondary-color
+  position: relative
+  top: -4vh
+  padding: 8px
+  border-radius: 15px
+  height: 80vh
+
+  .task-container
+    height: 80vh
+    width: 100%
+    overflow: auto
+
+// CreateTask.vue styles
+
+.createTask-form
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+  input, select
+    margin: 4px
+
+.input-container
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  color: $secondary-text-color
+  padding-bottom: 40px
+
+.input-row
+  width: 70%
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+
+  p
+    width: 30%
+    font-weight: 600
+
+  input, select
+    width: 100%
+
+.date-row
+  width: 70%
+  display: flex
+  flex-direction: row
+  padding-top: 10px
+  justify-content: space-between
+  align-items: center
+  p
+    width: 50%
+    font-weight: 600
+
+.task-input
+  width: 50%
+  height: 32px
+  border-radius: 8px
+  border: 1px solid $dark-color
+  padding-left: 8px
+  font-weight: 600
+
+.task-input-red
+  border: 4px solid red
+
+.error-msg
+  color: white
+  font-size: 14px
+
+.create-task-header
+  border-bottom: 3px solid $base-text-color
+
+.button-menu
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  width: 100%
+
+  button
+    margin: 2px
+
+//ErroPage styles
+
+.error-container
+  display: flex
+  flex-direction: column
+  height: 100%
+  justify-content: center
+  align-items: center
+  padding-bottom: 100px
+
+  h1, h2
+    text-align: center
+
+// TaskItem.vue styles
+
+.task-item
+  background-color: $base-text-color
+  color: $secondary-text-color
+  border-radius: 8px
+  width: 97%
+  padding-left: 8px
+  padding-top: 8px
+  padding-bottom: 4px
+  height: fit-content
+  margin-bottom: 4px
+
+  p
+    padding: 0
+    margin: 0
+    font-weight: 600
+    color: $secondary-text-color
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+    span
+      font-weight: 400
+      white-space: nowrap
+      overflow: hidden
+
+  .task-description
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    overflow: hidden
+    -ms-line-clamp: 2
+    -webkit-line-clamp: 2
+    line-clamp: 2
+    display: -webkit-box
+    display: box
+    word-wrap: break-word
+    -webkit-box-orient: vertical
+    box-orient: vertical
+    font-size: 16px
+    line-height: 19px
+    font-weight: 600
+
+    span
+      font-weight: 400
+
+.status1
+  background-color: $to-do-color
+
+.status2
+  background-color: $in-progress-color
+
+.status3
+  background-color: $done-color
+
+.status1, .status2, .status3
+  margin-bottom: 4px
+  border-radius: 8px
+  height: fit-content
+  padding-bottom: 2px
+  width: 100%
+
+::-webkit-scrollbar
+  width: 0px
+  height: 4px
+  background-color: #FFFFFF
+  opacity: 0
+
+::-webkit-scrollbar-thumb
+  border-radius: 2px
+  background-color: #d1d1d1
+  opacity: 0
+
+  // pre-loader styles 
+
+.container
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  display: flex
+  flex-direction: row
+
+.dash
+  margin: 0 15px
+  width: 35px
+  height: 15px
+  border-radius: 8px
+  background: $dark-color
+
+.first
+  margin-right: -18px
+  transform-origin: center left
+  animation: spin 3s linear infinite
+
+.sec
+  transform-origin: center right
+  animation: spin2 3s linear infinite
+  animation-delay: .2s
+
+.third
+  transform-origin: center right
+  animation: spin3 3s linear infinite
+  animation-delay: .3s
+
+.fourth
+  transform-origin: center right
+  animation: spin4 3s linear infinite
+  animation-delay: .4s
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+
+  25%
+    transform: rotate(360deg)
+
+  30%
+    transform: rotate(370deg)
+
+  35%
+    transform: rotate(360deg)
+
+  100%
+    transform: rotate(360deg)
+
+@keyframes spin2
+  0%
+    transform: rotate(0deg)
+
+  20%
+    transform: rotate(0deg)
+
+  30%
+    transform: rotate(-180deg)
+
+  35%
+    transform: rotate(-190deg)
+
+  40%
+    transform: rotate(-180deg)
+
+  78%
+    transform: rotate(-180deg)
+
+  95%
+    transform: rotate(-360deg)
+
+  98%
+    transform: rotate(-370deg)
+
+  100%
+    transform: rotate(-360deg)
+
+@keyframes spin3
+  0%
+    transform: rotate(0deg)
+
+  27%
+    transform: rotate(0deg)
+
+  40%
+    transform: rotate(180deg)
+
+  45%
+    transform: rotate(190deg)
+
+  50%
+    transform: rotate(180deg)
+
+  62%
+    transform: rotate(180deg)
+
+  75%
+    transform: rotate(360deg)
+
+  80%
+    transform: rotate(370deg)
+
+  85%
+    transform: rotate(360deg)
+
+  100%
+    transform: rotate(360deg)
+
+@keyframes spin4
+  0%
+    transform: rotate(0deg)
+
+  38%
+    transform: rotate(0deg)
+
+  60%
+    transform: rotate(-360deg)
+
+  65%
+    transform: rotate(-370deg)
+
+  75%
+    transform: rotate(-360deg)
+
+  100%
+    transform: rotate(-360deg)
