@@ -1,5 +1,10 @@
 # task-list
 
+### Start JSON server
+```
+json-server db.json
+```
+
 ## Project setup
 ```
 npm install
